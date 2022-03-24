@@ -67,6 +67,9 @@ class ImageStack extends StatelessWidget {
   /// To show the remaining count if the provided list size is less than [totalCount]
   final bool showTotalCount;
 
+  /// To align the entire row of images
+  final MainAxisAlignment alignment;
+
   /// Creates a image stack widget.
   ///
   /// The [imageList] and [totalCount] parameters are required.
@@ -86,6 +89,7 @@ class ImageStack extends StatelessWidget {
     ),
     this.extraCountBorderColor,
     this.backgroundColor = Colors.white,
+    this.alignment = MainAxisAlignment.start,
   })  : children = [],
         providers = [],
         widgetBorderColor = null,
@@ -112,6 +116,7 @@ class ImageStack extends StatelessWidget {
     ),
     this.extraCountBorderColor,
     this.backgroundColor = Colors.white,
+    this.alignment = MainAxisAlignment.start,
   })  : imageList = [],
         providers = [],
         imageBorderColor = widgetBorderColor,
@@ -139,6 +144,7 @@ class ImageStack extends StatelessWidget {
     ),
     this.extraCountBorderColor,
     this.backgroundColor = Colors.white,
+    this.alignment = MainAxisAlignment.start,
   })  : imageList = [],
         children = [],
         widgetBorderColor = null,
@@ -171,6 +177,7 @@ class ImageStack extends StatelessWidget {
 
     return Container(
       child: Row(
+        mainAxisAlignment: alignment,
         children: <Widget>[
           widgetList.isNotEmpty
               ? Stack(
